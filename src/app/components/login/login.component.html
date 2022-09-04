@@ -1,1 +1,15 @@
-<h2>LOGIN WORKS</h2>
+<div id="login-container">
+    <form id="login-form">
+        <mat-form-field class="login-full-width" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" name="username" placeholder="Username" [(ngModel)]="username">
+        </mat-form-field>
+
+        <mat-form-field class="login-full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" placeholder="Password" [(ngModel)]="password">
+        </mat-form-field>
+
+        <a mat-stroked-button class="login-full-width">Login</a>
+      </form>
+</div>
