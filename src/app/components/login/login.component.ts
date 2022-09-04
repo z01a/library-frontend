@@ -3,6 +3,7 @@ import { delay } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { User } from '../../models/user';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.errorMessage = "";
     this.requestInProgress = false;
   }
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("token", JSON.stringify(response));
 
           // TODO: Perform redirection to other route
+          this.router.navigate(['home']);
         }
       },
       complete: () => {
