@@ -35,19 +35,19 @@ export class LoginComponent implements OnInit {
     this.requestInProgress = true;
 
     this.authService.auth(this.loginGroup.controls['username'].value, this.loginGroup.controls['password'].value).pipe(delay(2000)).subscribe({
-      next: (response) => {
+      next: (response: any) => {
         if(response) {
-          localStorage.setItem("token", JSON.stringify(response));
-          sessionStorage.setItem("token", JSON.stringify(response));
+          const token = response.token;
 
-          // TODO: Perform redirection to other route
+          localStorage.setItem("token", token);
+
           this.router.navigate(['home']);
         }
       },
       complete: () => {
         this.requestInProgress = false;
       },
-      error: () => {
+      error: (error) => {
         this.requestInProgress = false;
 
         this.errorMessage = "Invalid username or password!";

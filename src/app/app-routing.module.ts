@@ -5,12 +5,14 @@ import { LoginComponent } from './components/login/login.component';
 import { GuestComponent } from './components/guest/guest.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthorizationGuard } from './guards/authorization.guard';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'admin', component: AdminComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthorizationGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [AuthenticationGuard]},
+  { path: 'home', component: HomeComponent, canActivate: [AuthorizationGuard]},
   { path: 'guest', component: GuestComponent },
   { path: '**', component: DefaultComponent }
 ];
