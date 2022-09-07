@@ -13,10 +13,8 @@ export class AuthorizationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      console.log(route);
-      console.log(state);
-
       if(!this.authService.getToken()) {
+        this.router.navigate(["login"]);
         return false;
       }
 
@@ -26,11 +24,9 @@ export class AuthorizationGuard implements CanActivate {
             resolve(true);
           },
           error: (error) => {
+            this.router.navigate(["login"]);
             resolve(false);
           },
-          complete: () => {
-            resolve(false);
-          }
         });
       });
   }
