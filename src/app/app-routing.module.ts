@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'admin', component: AdminComponent, canActivate: [AuthorizationGuard]},
   { path: 'login', component: LoginComponent, canActivate: [AuthenticationGuard]},
   { path: 'home', component: HomeComponent, canActivate: [AuthorizationGuard]},
+  { path: 'register', component: RegisterComponent },
   { path: 'guest', component: GuestComponent },
   { path: '**', component: DefaultComponent }
 ];
