@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-register',
@@ -8,8 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() {
-    this.errorMessage = "";
+  constructor(private usersService: UsersService, private router: Router, private snackbar: MatSnackBar) {
     this.requestInProgress = false;
   }
 
@@ -31,10 +33,36 @@ export class RegisterComponent implements OnInit {
 
   requestInProgress : boolean;
 
-  errorMessage : string;
-
   performRegister() {
+    this.requestInProgress = true;
+    this.registerGroup.disable();
 
+    const firstname = this.registerGroup.controls["firstname"].value;
+    const lastname = this.registerGroup.controls["lastname"].value;
+    const username = this.registerGroup.controls["username"].value;
+    const password = this.registerGroup.controls["password"].value;
+    const email = this.registerGroup.controls["email"].value;
+    const address = this.registerGroup.controls["address"].value;
+    const phone = this.registerGroup.controls["phone"].value;
+    const picture = "";
+
+    this.usersService.register(firstname, lastname, username, password, email, address, phone, picture).subscribe({
+        next: (result) => {
+          var snackbar = this.snackbar.open("Registration is successful! Please wait to redirect you...");
+          setTimeout(() => {
+            snackbar.dismiss();
+            this.router.navigate(["login"]);
+          }, 2500);
+        },
+        error: (error) => {
+          var snackbar = this.snackbar.open("Registration failed!");
+          setTimeout(() => {
+            snackbar.dismiss()
+            this.requestInProgress = false;
+            this.registerGroup.enable();
+          }, 2500);
+        }
+      });
   }
 
 }

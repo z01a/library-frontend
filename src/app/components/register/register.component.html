@@ -60,12 +60,8 @@
             <mat-error *ngIf="registerGroup.controls['phone'].invalid">Please enter your phone number</mat-error>
         </mat-form-field>
 
-        <mat-error *ngIf="errorMessage">
-            <h4>{{errorMessage}}</h4>
-        </mat-error>
-
         <button mat-flat-button type="submit" color="primary" [disabled]="requestInProgress || registerGroup.invalid" class="register-full-width">Register</button>
-    
+
         <mat-divider style="margin-top: 10px; margin-bottom:10px;"></mat-divider>
 
         <a mat-stroked-button routerLink="/login" color="primary" class="register-full-width">Already Have An Account?</a>
