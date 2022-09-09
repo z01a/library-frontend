@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent as AdminLoginComponent} from './components/admin/login/login.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component'
 import { HomeComponent } from './components/home/home.component';
@@ -30,7 +31,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HomeComponent,
     GuestComponent,
     AdminComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

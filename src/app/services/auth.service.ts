@@ -8,10 +8,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  auth(username: string, password: string) {
+  authenticate(username: string, password: string, elevated: boolean = false) {
     const data = {
       username: username,
-      password: password
+      password: password,
+      elevated: elevated 
     }
 
     return this.http.post("http://localhost:4000/auth", data);

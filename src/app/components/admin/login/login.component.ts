@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../models/user';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -34,14 +33,17 @@ export class LoginComponent implements OnInit {
   performLogin() {
     this.requestInProgress = true;
 
-    this.authService.authenticate(this.loginGroup.controls['username'].value, this.loginGroup.controls['password'].value).pipe(delay(2000)).subscribe({
+    let username = this.loginGroup.controls['username'].value;
+    let password = this.loginGroup.controls['password'].value;
+
+    this.authService.authenticate(username, password, true).pipe(delay(2000)).subscribe({
       next: (response: any) => {
         if(response) {
           const token = response.token;
 
           localStorage.setItem("token", token);
 
-          this.router.navigate(['home']);
+          this.router.navigate(['admin']);
         }
       },
       complete: () => {
