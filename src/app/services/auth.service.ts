@@ -15,14 +15,14 @@ export class AuthService {
       elevated: elevated 
     }
 
-    return this.http.post("http://localhost:4000/auth", data);
+    return this.http.post("http://localhost:4000/authenticate", data);
   }
 
   validate(token: string | null) {
     const data = {
       token: token
     }
-    return this.http.post("http://localhost:4000/auth/validate", data);
+    return this.http.post("http://localhost:4000/authenticate/validate", data);
   }
 
   logout() {
