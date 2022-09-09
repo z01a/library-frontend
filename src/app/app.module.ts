@@ -7,13 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
-import { AdminComponent } from './components/admin/admin.component';
-import { LoginComponent as AdminLoginComponent} from './components/admin/login/login.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component'
-import { HomeComponent } from './components/home/home.component';
-import { GuestComponent } from './components/guest/guest.component';
-import { DefaultComponent } from './components/default/default.component';
+import { ApplicationComponent } from './components/application/application.component';
+import { AdminComponent } from './components/application/admin/admin.component';
+import { HomeComponent } from './components/application/home/home.component';
+import { GuestComponent } from './components/application/guest/guest.component';
+
+import { EmptyComponent } from './components/empty/empty.component';
+import { LoginComponent as AdminLoginComponent} from './components/empty/admin/login/login.component';
+import { LoginComponent } from './components/empty/login/login.component';
+import { RegisterComponent } from './components/empty/register/register.component';
+
+import { DefaultComponent } from './components/empty/default/default.component';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
@@ -22,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     GuestComponent,
     AdminComponent,
     RegisterComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    ApplicationComponent,
+    EmptyComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

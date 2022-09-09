@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../models/user';
+import { User } from '../../../models/user';
 import { Router } from '@angular/router';
 
 @Component({
