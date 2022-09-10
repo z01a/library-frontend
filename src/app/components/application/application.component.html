@@ -1,4 +1,8 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+
     <span>My Library</span>
 
     <span class="toolbar-spacer"></span>
@@ -6,5 +10,17 @@
     <a mat-button routerLink="login">Login</a>
     <a mat-button routerLink="register">Register</a>
 </mat-toolbar>
-  
-<router-outlet></router-outlet>
+
+<mat-sidenav-container color="primary" class="sidenav-container">
+    <mat-sidenav #sidenav color="primary" id="sidenav" mode="side" opened>
+        <mat-nav-list *ngFor="let route of routes">
+            <a mat-list-item routerLink="{{route.link}}">
+                <mat-icon mat-list-icon>{{route.icon}}</mat-icon>
+                <div mat-line>{{route.name}}</div>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content id="sidenav-content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

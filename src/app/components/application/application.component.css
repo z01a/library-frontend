@@ -1,3 +1,20 @@
 .toolbar-spacer {
     flex: 1 1 auto;
 }  
+
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav-container #sidenav {
+    background-color: #3f51b5;
+    min-width: 250px;
+}
+
+.sidenav-container #sidenav a {
+    color: white;
+}
+
+.sidenav-container #sidenav-content {
+    
+}
