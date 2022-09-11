@@ -14,9 +14,4 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  performLogout() {
-    this.authService.logout();
-    this.router.navigate(["admin/login"]);
-  }
-
 }

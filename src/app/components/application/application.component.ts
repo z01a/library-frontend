@@ -55,13 +55,15 @@ export class ApplicationComponent implements OnInit {
 
   private static readonly RoleRoutes: { [id: string]: Link[]; } = {
     Administrator: [
-      { link: "/admin", name: "Home", icon: "home"}
+      { link: "/admin", name: "Home", icon: "home" },
+      { link: "/admin/requests", name: "Requests", icon: "pending" }
+
     ],
     Moderator: [
-      { link: "/home", name: "Home", icon: "home" }
+      { link: "/moderator", name: "Home", icon: "home" }
     ],
     User: [
-      { link: "/home", name: "Home", icon: "home" }
+      { link: "/user", name: "Home", icon: "home" }
     ],
     Guest: [
       { link: "/guest", name: "Home", icon: "home" }

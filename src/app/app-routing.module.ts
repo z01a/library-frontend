@@ -12,6 +12,13 @@ import { RegisterComponent } from './components/empty/register/register.componen
 import { AdminAuthorizationGuard } from './guards/admin-authorization.guard';
 import { ApplicationComponent } from './components/application/application.component';
 import { EmptyComponent } from './components/empty/empty.component';
+import { RequestsComponent as AdminRequestsComponent } from './components/application/admin/requests/requests.component';
+import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
+import { ModeratorComponent } from './components/application/modertor/moderator/moderator.component';
+import { DashboardComponent as ModeratorDashboardComponent } from './components/application/modertor/dashboard/dashboard.component';
+import { DashboardComponent as UserDashboardComponent } from './components/application/user/dashboard/dashboard.component';
+import { UserComponent } from './components/application/user/user/user.component';
+import { DashboardComponent as GuestDashboardComponent } from './components/application/guest/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -19,9 +26,43 @@ const routes: Routes = [
     path: '',
     component: ApplicationComponent,
     children: [
-      { path: 'guest', component: GuestComponent },
-      { path: 'admin', component: AdminComponent, canActivate: [AdminAuthorizationGuard] },
-      { path: 'home', component: HomeComponent, canActivate: [AuthorizationGuard] }
+      { path: 'home', component: HomeComponent, canActivate: [AuthorizationGuard] },
+      {
+        path: 'guest',
+        component: GuestComponent,
+        children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: GuestDashboardComponent },
+        ]
+      },
+      { 
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AdminAuthorizationGuard],
+        children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: AdminDashboardComponent },
+          { path: 'requests', component: AdminRequestsComponent }
+        ]
+      },
+      {
+        path: 'moderator',
+        component: ModeratorComponent,
+        canActivate: [AuthorizationGuard],
+        children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: ModeratorDashboardComponent },
+        ]
+      },
+      {
+        path: 'user',
+        component: UserComponent,
+        canActivate: [AuthorizationGuard],
+        children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: UserDashboardComponent },
+        ]
+      },
     ]
   },
   {

@@ -9,6 +9,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { ApplicationComponent } from './components/application/application.component';
 import { AdminComponent } from './components/application/admin/admin.component';
+import { RequestsComponent as AdminRequestsComponent} from './components/application/admin/requests/requests.component';
+import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
+import { ModeratorComponent } from './components/application/modertor/moderator/moderator.component';
+import { DashboardComponent as ModeratorDashboardComponent} from './components/application/modertor/dashboard/dashboard.component';
 import { HomeComponent } from './components/application/home/home.component';
 import { GuestComponent } from './components/application/guest/guest.component';
 
@@ -29,6 +33,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { UserComponent } from './components/application/user/user/user.component';
+import { DashboardComponent } from './components/application/user/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,15 @@ import { MatListModule } from '@angular/material/list';
     RegisterComponent,
     AdminLoginComponent,
     ApplicationComponent,
-    EmptyComponent
+    EmptyComponent,
+
+    AdminRequestsComponent,
+    AdminDashboardComponent,
+    
+    ModeratorComponent,
+    ModeratorDashboardComponent,
+    UserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
