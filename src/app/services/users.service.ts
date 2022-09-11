@@ -22,4 +22,26 @@ export class UsersService {
     
     return this.http.post("http://localhost:4000/users/register", body);
   }
+
+  fetch(requests: boolean = false) {
+    if(requests) {
+      return this.http.get("http://localhost:4000/users/requests");
+    } else {
+      return this.http.get("http://localhost:4000/users");
+    }
+  }
+
+  approve(username: string) {
+    const body = {
+      username: username
+    }
+    return this.http.post("http://localhost:4000/users/requests/approve", body);
+  }
+
+  delete(username: string) {
+    const body = {
+      username: username
+    }
+    return this.http.post("http://localhost:4000/users/requests/delete", body);
+  }
 }

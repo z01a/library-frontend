@@ -13,6 +13,8 @@ import { RequestsComponent as AdminRequestsComponent} from './components/applica
 import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
 import { ModeratorComponent } from './components/application/modertor/moderator/moderator.component';
 import { DashboardComponent as ModeratorDashboardComponent} from './components/application/modertor/dashboard/dashboard.component';
+import { UserComponent } from './components/application/user/user/user.component';
+import { DashboardComponent as UserDashboardComponent} from './components/application/user/dashboard/dashboard.component';
 import { HomeComponent } from './components/application/home/home.component';
 import { GuestComponent } from './components/application/guest/guest.component';
 
@@ -33,8 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { UserComponent } from './components/application/user/user/user.component';
-import { DashboardComponent } from './components/application/user/dashboard/dashboard.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { DashboardComponent } from './components/application/user/dashboard/dash
     ModeratorComponent,
     ModeratorDashboardComponent,
     UserComponent,
-    DashboardComponent
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +73,8 @@ import { DashboardComponent } from './components/application/user/dashboard/dash
     MatSnackBarModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

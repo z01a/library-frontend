@@ -1,3 +1,27 @@
-<div id="requests-container">
-    <h4>Requests Works!</h4>
-</div>
+<ng-container *ngIf="requests.length == 0; then norequests; else somerequests"></ng-container>
+<ng-template #norequests>
+    <div id="message-container">
+        <h2 style="color: gray;">No requests for registration</h2>
+    </div>
+</ng-template>
+<ng-template #somerequests>
+    <div id="requests-container">
+        <div class="card-container" *ngFor="let request of requests">
+            <mat-card class="card">
+                <mat-card-header>
+                    <div mat-card-avatar class="card-header-image"></div>
+                    <mat-card-title>
+                        {{request.firstname + " " + request.lastname}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{request.email}}
+                </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions>
+                    <button mat-button (click)="performAccept(request.username)">ACCEPT</button>
+                    <button mat-button (click)="performDelete(request.username)" color="warn">DELETE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>
