@@ -20,6 +20,7 @@ import { DashboardComponent as UserDashboardComponent } from './components/appli
 import { UserComponent } from './components/application/user/user.component';
 import { DashboardComponent as GuestDashboardComponent } from './components/application/guest/dashboard/dashboard.component';
 import { UsersComponent as AdminUsersComponent } from './components/application/admin/users/users.component';
+import { UserDetailsComponent as AdminUserDetailsComponent } from './components/application/admin/user-details/user-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -44,7 +45,8 @@ const routes: Routes = [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: AdminDashboardComponent },
           { path: 'requests', component: AdminRequestsComponent },
-          { path: 'users', component: AdminUsersComponent }
+          { path: 'users', component: AdminUsersComponent },
+          { path: 'users/:id', component: AdminUserDetailsComponent }
         ]
       },
       {

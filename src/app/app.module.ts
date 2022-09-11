@@ -12,6 +12,7 @@ import { AdminComponent } from './components/application/admin/admin.component';
 import { RequestsComponent as AdminRequestsComponent} from './components/application/admin/requests/requests.component';
 import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
 import { UsersComponent  as AdminUsersComponent } from './components/application/admin/users/users.component';
+import { UserDetailsComponent as AdminUserDetailsComponent } from './components/application/admin/user-details/user-details.component';
 import { ModeratorComponent } from './components/application/moderator/moderator.component';
 import { DashboardComponent as ModeratorDashboardComponent} from './components/application/moderator/dashboard/dashboard.component';
 import { UserComponent } from './components/application/user/user.component';
@@ -37,6 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { MatCardModule } from '@angular/material/card';
     AdminRequestsComponent,
     AdminDashboardComponent,
     AdminUsersComponent,
+    AdminUserDetailsComponent,
     
     ModeratorComponent,
     ModeratorDashboardComponent,
@@ -76,7 +79,8 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

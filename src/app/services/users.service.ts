@@ -31,6 +31,14 @@ export class UsersService {
     }
   }
 
+  fetchUser(username: string) {
+    // const body = {
+    //   username: username
+    // }
+
+    return this.http.get("http://localhost:4000/users/" + username);
+  }
+
   approve(username: string) {
     const body = {
       username: username
