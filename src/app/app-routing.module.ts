@@ -14,10 +14,10 @@ import { ApplicationComponent } from './components/application/application.compo
 import { EmptyComponent } from './components/empty/empty.component';
 import { RequestsComponent as AdminRequestsComponent } from './components/application/admin/requests/requests.component';
 import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
-import { ModeratorComponent } from './components/application/modertor/moderator/moderator.component';
-import { DashboardComponent as ModeratorDashboardComponent } from './components/application/modertor/dashboard/dashboard.component';
+import { ModeratorComponent } from './components/application/moderator/moderator.component';
+import { DashboardComponent as ModeratorDashboardComponent } from './components/application/moderator/dashboard/dashboard.component';
 import { DashboardComponent as UserDashboardComponent } from './components/application/user/dashboard/dashboard.component';
-import { UserComponent } from './components/application/user/user/user.component';
+import { UserComponent } from './components/application/user/user.component';
 import { DashboardComponent as GuestDashboardComponent } from './components/application/guest/dashboard/dashboard.component';
 
 const routes: Routes = [

@@ -11,9 +11,9 @@ import { ApplicationComponent } from './components/application/application.compo
 import { AdminComponent } from './components/application/admin/admin.component';
 import { RequestsComponent as AdminRequestsComponent} from './components/application/admin/requests/requests.component';
 import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
-import { ModeratorComponent } from './components/application/modertor/moderator/moderator.component';
-import { DashboardComponent as ModeratorDashboardComponent} from './components/application/modertor/dashboard/dashboard.component';
-import { UserComponent } from './components/application/user/user/user.component';
+import { ModeratorComponent } from './components/application/moderator/moderator.component';
+import { DashboardComponent as ModeratorDashboardComponent} from './components/application/moderator/dashboard/dashboard.component';
+import { UserComponent } from './components/application/user/user.component';
 import { DashboardComponent as UserDashboardComponent} from './components/application/user/dashboard/dashboard.component';
 import { HomeComponent } from './components/application/home/home.component';
 import { GuestComponent } from './components/application/guest/guest.component';
