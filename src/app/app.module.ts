@@ -11,6 +11,7 @@ import { ApplicationComponent } from './components/application/application.compo
 import { AdminComponent } from './components/application/admin/admin.component';
 import { RequestsComponent as AdminRequestsComponent} from './components/application/admin/requests/requests.component';
 import { DashboardComponent as AdminDashboardComponent } from './components/application/admin/dashboard/dashboard.component';
+import { UsersComponent  as AdminUsersComponent } from './components/application/admin/users/users.component';
 import { ModeratorComponent } from './components/application/moderator/moderator.component';
 import { DashboardComponent as ModeratorDashboardComponent} from './components/application/moderator/dashboard/dashboard.component';
 import { UserComponent } from './components/application/user/user.component';
@@ -52,11 +53,12 @@ import { MatCardModule } from '@angular/material/card';
 
     AdminRequestsComponent,
     AdminDashboardComponent,
+    AdminUsersComponent,
     
     ModeratorComponent,
     ModeratorDashboardComponent,
     UserComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,

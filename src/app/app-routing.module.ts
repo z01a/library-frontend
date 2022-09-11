@@ -19,6 +19,7 @@ import { DashboardComponent as ModeratorDashboardComponent } from './components/
 import { DashboardComponent as UserDashboardComponent } from './components/application/user/dashboard/dashboard.component';
 import { UserComponent } from './components/application/user/user.component';
 import { DashboardComponent as GuestDashboardComponent } from './components/application/guest/dashboard/dashboard.component';
+import { UsersComponent as AdminUsersComponent } from './components/application/admin/users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -42,7 +43,8 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: AdminDashboardComponent },
-          { path: 'requests', component: AdminRequestsComponent }
+          { path: 'requests', component: AdminRequestsComponent },
+          { path: 'users', component: AdminUsersComponent }
         ]
       },
       {

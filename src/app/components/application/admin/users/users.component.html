@@ -1,0 +1,27 @@
+<ng-container *ngIf="users.length == 0; then nousers; else someusers"></ng-container>
+<ng-template #nousers>
+    <div id="message-container">
+        <h2 style="color: gray;">No users in database</h2>
+    </div>
+</ng-template>
+<ng-template #someusers>
+    <div id="requests-container">
+        <div class="card-container" *ngFor="let user of users">
+            <mat-card class="card">
+                <mat-card-header>
+                    <div mat-card-avatar class="card-header-image"></div>
+                    <mat-card-title>
+                        <a routerLink="/admin/users/{{user.username}}">{{user.firstname + " " + user.lastname}}</a>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{user.email}}
+                </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions>
+                    <!-- <button mat-button>ACCEPT</button> -->
+                    <button mat-button (click)="performDelete(user.username)" color="warn">DELETE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>
