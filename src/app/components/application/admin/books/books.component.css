@@ -1,0 +1,22 @@
+#books-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-flow: row wrap;
+}
+
+#books-container > * {
+    align-self: center;
+    margin: 5px;
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+  

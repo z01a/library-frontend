@@ -21,6 +21,7 @@ import { UserComponent } from './components/application/user/user.component';
 import { DashboardComponent as GuestDashboardComponent } from './components/application/guest/dashboard/dashboard.component';
 import { UsersComponent as AdminUsersComponent } from './components/application/admin/users/users.component';
 import { UserDetailsComponent as AdminUserDetailsComponent } from './components/application/admin/user-details/user-details.component';
+import { BooksComponent as AdminBooksComponent } from './components/application/admin/books/books.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -46,7 +47,8 @@ const routes: Routes = [
           { path: 'dashboard', component: AdminDashboardComponent },
           { path: 'requests', component: AdminRequestsComponent },
           { path: 'users', component: AdminUsersComponent },
-          { path: 'users/:id', component: AdminUserDetailsComponent }
+          { path: 'users/:id', component: AdminUserDetailsComponent },
+          { path: 'books', component: AdminBooksComponent }
         ]
       },
       {

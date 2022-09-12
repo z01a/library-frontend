@@ -1,0 +1,19 @@
+<ng-container *ngIf="books.length == 0; then nobooks; else somebooks"></ng-container>
+<ng-template #nobooks>
+    <div id="message-container">
+        <h2 style="color: gray;">No books in database</h2>
+    </div>
+</ng-template>
+<ng-template #somebooks>
+    <div id="books-container">
+        <div *ngFor="let book of books">
+            <mat-card class="mat-elevation-z4" style="">
+                <img mat-card-xl-image src="{{book.cover}}" style="background-size: cover;"/>
+                <mat-card-actions>
+                    <button mat-button>DETAILS</button>
+                    <button mat-button color="warn">DELETE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>

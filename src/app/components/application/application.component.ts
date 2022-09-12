@@ -57,7 +57,8 @@ export class ApplicationComponent implements OnInit {
     Administrator: [
       { link: "/admin", name: "Home", icon: "home" },
       { link: "/admin/requests", name: "Requests", icon: "pending" },
-      { link: "/admin/users", name: "Users", icon: "group" }
+      { link: "/admin/users", name: "Users", icon: "group" },
+      { link: "/admin/books", name: "Books", icon: "book" }
 
     ],
     Moderator: [
