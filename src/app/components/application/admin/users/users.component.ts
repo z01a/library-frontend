@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -9,11 +10,13 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchUsers()
   }
+
+  displayedColumns: string[] = ['firstname', 'lastname', 'username', 'email', 'active', 'role', 'delete'];
 
   users: User[] = []
 
@@ -28,6 +31,11 @@ export class UsersComponent implements OnInit {
 
   performDelete(username: string) {
     // TODO: Delete user but check firt does he have books
+  }
+
+  performRowAction(username: string) {
+    this.router.navigate(['/admin/users/' + username]);
+    console.log("Clicked!" + username)
   }
 
 }

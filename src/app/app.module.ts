@@ -41,6 +41,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -84,7 +86,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatCardModule,
     MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatChipsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
