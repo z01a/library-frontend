@@ -1,0 +1,56 @@
+<div id="register-container">
+    <form id="register-form" [formGroup]="bookGroup">
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title" name="title">
+            <mat-error *ngIf="bookGroup.controls['title'].invalid">Please enter valid title</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>ISBN</mat-label>
+            <input matInput type="text" formControlName="isbn" name="isbn" readonly>
+            <mat-error *ngIf="bookGroup.controls['isbn'].invalid">Please enter valid ISBN</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Publisher</mat-label>
+            <input matInput type="text" formControlName="publisher" name="publisher">
+            <mat-error *ngIf="bookGroup.controls['publisher'].invalid">Please enter valid publisher</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Published</mat-label>
+            <input matInput type="text" formControlName="published" name="published">
+            <mat-error *ngIf="bookGroup.controls['published'].invalid">Please enter valid format (MONTH YEAR)</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Language</mat-label>
+            <input matInput type="text" formControlName="language" name="language">
+            <mat-error *ngIf="bookGroup.controls['language'].invalid">Please enter valid language</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" appearance="fill">
+            <mat-label>Genres</mat-label>
+            <mat-chip-list #chipList multiple formControlName="genres">
+              <mat-chip
+                  *ngFor="let genre of genres"
+                  [selected]="genre"
+                  [value]="genre"
+                  (removed)="removeGenre(genre)">
+                {{genre}}
+              </mat-chip>
+              <input
+                placeholder="New genre..."
+                [matChipInputFor]="chipList"
+                (matChipInputTokenEnd)="addKeywordFromInput($event)">
+            </mat-chip-list>
+          </mat-form-field>
+          
+
+        <button mat-fab color="primary" id="user-details-fab" color="accent" (click)="performAction()">
+            <mat-icon *ngIf="action === Action.Edit">edit</mat-icon>
+            <mat-icon *ngIf="action === Action.Save">save</mat-icon>
+        </button>
+    </form>
+</div>

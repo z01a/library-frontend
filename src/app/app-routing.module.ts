@@ -29,6 +29,8 @@ import { ModeratorProfileComponent } from './components/application/moderator/pr
 import { UserProfileComponent } from './components/application/user/profile/profile.component';
 import { ModeratorBooksComponent } from './components/application/moderator/books/books.component';
 import { UserBooksComponent } from './components/application/user/books/books.component';
+import { BookDetailsComponent as ModeratorBooksDetailsComponent } from './components/application/moderator/books/details/details.component';
+import { BookRegisterComponent as ModeratorBookRegisterComponent } from './components/application/moderator/books/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -69,7 +71,9 @@ const routes: Routes = [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: ModeratorDashboardComponent },
           { path: 'profile', component: ModeratorProfileComponent },
+          { path: 'books/register', component: ModeratorBookRegisterComponent },
           { path: 'books', component: ModeratorBooksComponent },
+          { path: 'books/:isbn', component: ModeratorBooksDetailsComponent },
         ]
       },
       {

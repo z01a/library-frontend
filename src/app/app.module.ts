@@ -52,6 +52,9 @@ import { UserProfileComponent } from './components/application/user/profile/prof
 import { UserBooksComponent } from './components/application/user/books/books.component';
 import { ModeratorProfileComponent } from './components/application/moderator/profile/profile.component';
 import { ModeratorBooksComponent } from './components/application/moderator/books/books.component';
+import { BookDetailsComponent as ModeratorBooksDetailsComponent } from './components/application/moderator/books/details/details.component';
+import { BookRegisterComponent as ModeratorBookRegisterComponent } from './components/application/moderator/books/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -79,6 +82,8 @@ import { ModeratorBooksComponent } from './components/application/moderator/book
     ModeratorDashboardComponent,
     ModeratorProfileComponent,
     ModeratorBooksComponent,
+    ModeratorBooksDetailsComponent,
+    ModeratorBookRegisterComponent,
 
 
     UserComponent,
@@ -86,7 +91,7 @@ import { ModeratorBooksComponent } from './components/application/moderator/book
     UserProfileComponent,
     UserBooksComponent,
     UserProfileComponent,
-    UserBooksComponent
+    UserBooksComponent,
   ],
   imports: [
     BrowserModule,
