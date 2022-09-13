@@ -31,7 +31,7 @@
             <td mat-cell *matCellDef="let user">
                 <mat-chip-list>
                     <mat-chip *ngIf="user.active" color="primary" selected>Active</mat-chip>
-                    <mat-chip *ngIf="!user.active" selected>Not Active</mat-chip>
+                    <mat-chip *ngIf="!user.active">Not Active</mat-chip>
                 </mat-chip-list>
             </td>
         </ng-container>
