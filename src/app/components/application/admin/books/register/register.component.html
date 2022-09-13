@@ -31,8 +31,25 @@
         </mat-form-field>
 
         <mat-form-field class="register-full-width" appearance="fill">
+            <mat-label>Authors</mat-label>
+            <mat-chip-list #authorList multiple formControlName="authors">
+              <mat-chip
+                  *ngFor="let author of authors"
+                  [selected]="author"
+                  [value]="author"
+                  (removed)="removeAuthor(author)">
+                {{author}}
+              </mat-chip>
+              <input
+                placeholder="New author..."
+                [matChipInputFor]="authorList"
+                (matChipInputTokenEnd)="addAuthorFromInput($event)">
+            </mat-chip-list>
+          </mat-form-field>
+
+        <mat-form-field class="register-full-width" appearance="fill">
             <mat-label>Genres</mat-label>
-            <mat-chip-list #chipList multiple formControlName="genres">
+            <mat-chip-list #genreList multiple formControlName="genres">
               <mat-chip
                   *ngFor="let genre of genres"
                   [selected]="genre"
@@ -42,8 +59,8 @@
               </mat-chip>
               <input
                 placeholder="New genre..."
-                [matChipInputFor]="chipList"
-                (matChipInputTokenEnd)="addKeywordFromInput($event)">
+                [matChipInputFor]="genreList"
+                (matChipInputTokenEnd)="addGenresFromInput($event)">
             </mat-chip-list>
           </mat-form-field>
           

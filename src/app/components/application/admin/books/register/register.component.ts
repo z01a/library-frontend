@@ -25,12 +25,26 @@ export class BookRegisterComponent implements OnInit {
     publisher: new FormControl('', [Validators.required]),
     published: new FormControl('', [Validators.required]),
     language: new FormControl('', [Validators.required]),
-    genres: new FormControl('', []),
+    genres: new FormControl(''),
+    authors: new FormControl(''),
   });
 
-  genres: string[] = []
+  authors: string[] = [];
+  genres: string[] = [];
 
-  addKeywordFromInput(event: MatChipInputEvent) {
+  addAuthorFromInput(event: MatChipInputEvent) {
+    if (event.value) {
+      this.authors.push(event.value);
+      event.chipInput!.clear();
+    }
+  }
+
+  removeAuthor(author: string) {
+    let index = this.genres.indexOf(author);
+    this.authors.splice(index, 1);
+  }
+
+  addGenresFromInput(event: MatChipInputEvent) {
     if (event.value) {
       this.genres.push(event.value);
       event.chipInput!.clear();
@@ -54,7 +68,7 @@ export class BookRegisterComponent implements OnInit {
     const language = this.bookGroup.controls["language"].value;
     const genres = this.bookGroup.controls["genres"].value;
 
-    this.booksService.register(isbn, title, publisher, published, language, [], this.genres).subscribe({
+    this.booksService.register(isbn, title, publisher, published, language, this.authors, this.genres).subscribe({
       next: () => {
         console.log("Book is registered!")
       },
