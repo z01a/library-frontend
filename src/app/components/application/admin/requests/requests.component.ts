@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -9,11 +10,13 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class RequestsComponent implements OnInit {
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
-    this.fetchRequests();
+    this.fetchRequests()
   }
+
+  displayedColumns: string[] = ['firstname', 'lastname', 'username', 'email', 'active', 'delete'];
 
   requests: User[] = []
 

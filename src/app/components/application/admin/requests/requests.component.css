@@ -1,9 +1,9 @@
-#requests-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+.user-row {
+    cursor: pointer;
+}
+
+.user-row:hover {
+    background-color: whitesmoke;
 }
 
 #message-container {
@@ -13,20 +13,5 @@
     align-items: center;
     height: 100%;
     width: 100%;
-}
-
-.card-container {
-    width: 100%;
-}
-
-.card {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-}
-  
-.card-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
 }
   

@@ -5,23 +5,60 @@
     </div>
 </ng-template>
 <ng-template #somerequests>
-    <div id="requests-container">
-        <div class="card-container" *ngFor="let request of requests">
-            <mat-card class="card">
-                <mat-card-header>
-                    <div mat-card-avatar class="card-header-image"></div>
-                    <mat-card-title>
-                        {{request.firstname + " " + request.lastname}}
-                </mat-card-title>
-                <mat-card-subtitle>
-                    {{request.email}}
-                </mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-actions>
-                    <button mat-button (click)="performAccept(request.username)">ACCEPT</button>
-                    <button mat-button (click)="performDelete(request.username)" color="warn">DELETE</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-    </div>
+    <table mat-table [dataSource]="requests" style="width:100%;">
+        <ng-container matColumnDef="firstname">
+            <th mat-header-cell *matHeaderCellDef> Firstname </th>
+            <td mat-cell *matCellDef="let request"> {{request.firstname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef> Lastname </th>
+            <td mat-cell *matCellDef="let request"> {{request.lastname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef> Username </th>
+          <td mat-cell *matCellDef="let request"> {{request.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let request"> {{request.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef> Is Active </th>
+            <td mat-cell *matCellDef="let request">
+                <mat-chip-list>
+                    <mat-chip *ngIf="request.active" color="primary" selected>Active</mat-chip>
+                    <mat-chip *ngIf="!request.active">Not Active</mat-chip>
+                </mat-chip-list>
+            </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef> Role </th>
+            <td mat-cell *matCellDef="let user">
+                <mat-chip-list>
+                    <mat-chip *ngIf="user.moderator" color="accent" selected>Moderator</mat-chip>
+                    <mat-chip *ngIf="!user.moderator" color="primary" selected>User</mat-chip>
+                </mat-chip-list>
+            </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let request" style="text-align: right;" (click)="$event.stopPropagation()">
+                <button mat-icon-button color="primary" (click)="performAccept(request.username)">
+                    <mat-icon>check</mat-icon>
+                </button>
+                <button mat-icon-button color="warn">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="user-row" *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
 </ng-template>
