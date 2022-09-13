@@ -1,1 +1,60 @@
-<p>books works!</p>
+<ng-container *ngIf="books.length == 0; then nousers; else someusers"></ng-container>
+<ng-template #nousers>
+    <div id="message-container">
+        <h2 style="color: gray;">No users in database</h2>
+    </div>
+</ng-template>
+<ng-template #someusers>
+    <table mat-table [dataSource]="books" style="width:100%;">
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let book"> {{book.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef> Author </th>
+            <td mat-cell *matCellDef="let book"> {{book.authors[0]}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publisher">
+          <th mat-header-cell *matHeaderCellDef> Publisher </th>
+          <td mat-cell *matCellDef="let book"> {{book.publisher}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef> Is Active </th>
+            <td mat-cell *matCellDef="let user">
+                <mat-chip-list>
+                    <mat-chip *ngIf="user.active" color="primary" selected>Active</mat-chip>
+                    <mat-chip *ngIf="!user.active">Not Active</mat-chip>
+                </mat-chip-list>
+            </td>
+        </ng-container> -->
+
+        <!-- <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef> Role </th>
+            <td mat-cell *matCellDef="let user">
+                <mat-chip-list>
+                    <mat-chip *ngIf="user.moderator" color="accent" selected>Moderator</mat-chip>
+                    <mat-chip *ngIf="!user.moderator" color="primary" selected>User</mat-chip>
+                </mat-chip-list>
+            </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let book" style="text-align: right;" (click)="$event.stopPropagation()">
+                <button mat-icon-button color="warn" (click)="performDelete(book.isbn)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row class="user-row" *matRowDef="let row; columns: displayedColumns;" (click)="performRowAction(row.isbn)"></tr>
+      </table>
+
+      <a mat-fab routerLink="/moderator/books/register" id="users-fab" color="accent">
+        <mat-icon>add</mat-icon>
+      </a>
+</ng-template>
