@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Book } from 'src/app/models/book';
 import { User } from 'src/app/models/user';
+import { BooksService } from 'src/app/services/books.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -10,43 +12,78 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class RequestsComponent implements OnInit {
 
-  constructor(private usersService: UsersService, private router: Router) { }
+  constructor(private usersService: UsersService, private booksService: BooksService, private router: Router) { }
 
   ngOnInit(): void {
-    this.fetchRequests()
+    this.fetchUsersRequests();
+    this.fetchBooksRequests();
   }
 
-  displayedColumns: string[] = ['firstname', 'lastname', 'username', 'email', 'active', 'delete'];
+  displayedUsersColumns: string[] = ['firstname', 'lastname', 'username', 'email', 'active', 'delete'];
+  displayedBooksColumns: string[] = ['title', 'author', 'publisher', 'active', 'delete'];
 
-  requests: User[] = []
+  users: User[] = []
+  books: Book[] = []
 
-  fetchRequests() {
+  fetchUsersRequests() {
     this.usersService.fetch(true).subscribe({
       next: (result: any) => {
-        this.requests = result
-        console.log(this.requests)
+        this.users = result
+        console.log(this.users)
       }
     });
   }
 
-  performAccept(username: string) {
+  fetchBooksRequests() {
+    this.booksService.fetch(true).subscribe({
+      next: (books: any) => {
+        this.books = books;
+        console.log(this.books);
+      }
+    });
+  }
+
+  performUserAccept(username: string) {
     console.log(username)
     this.usersService.approve(username).subscribe({
       next: (result) => {
         if(result) {
-          this.requests = []
-          this.fetchRequests()
+          this.users = []
+          this.fetchUsersRequests()
         }
       }
     });
   }
 
-  performDelete(username: string) {
+  performUserDelete(username: string) {
     this.usersService.delete(username).subscribe({
       next: (result) => {
         if(result) {
-          this.requests = []
-          this.fetchRequests()
+          this.users = []
+          this.fetchUsersRequests()
+        }
+      }
+    });
+  }
+
+  performBookAccept(isbn: string) {
+    console.log(isbn)
+    this.booksService.approve(isbn).subscribe({
+      next: (result) => {
+        if(result) {
+          this.books = []
+          this.fetchBooksRequests()
+        }
+      }
+    });
+  }
+
+  performBookDelete(isbn: string) {
+    this.booksService.delete(isbn).subscribe({
+      next: (result) => {
+        if(result) {
+          this.books = []
+          this.fetchBooksRequests()
         }
       }
     });

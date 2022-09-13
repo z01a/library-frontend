@@ -6,6 +6,10 @@
     background-color: whitesmoke;
 }
 
+.example-stretched-tabs {
+    max-width: 100%;
+  }
+
 #message-container {
     display: flex;
     flex-direction: column;

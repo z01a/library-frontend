@@ -8,8 +8,12 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  fetch() {
-    return this.http.get("http://localhost:4000/books");
+  fetch(requests: boolean = false) {
+    if(requests) {
+      return this.http.get("http://localhost:4000/books/requests");
+    } else {
+      return this.http.get("http://localhost:4000/books");
+    }
   }
 
   fetchBook(isbn: string) {
@@ -27,4 +31,19 @@ export class BooksService {
     
     return this.http.post("http://localhost:4000/books/modify", body);
   }
+
+  approve(isbn: string) {
+    const body = {
+      isbn: isbn
+    }
+    return this.http.post("http://localhost:4000/books/requests/approve", body);
+  }
+
+  delete(isbn: string) {
+    const body = {
+      isbn: isbn
+    }
+    return this.http.post("http://localhost:4000/books/requests/delete", body);
+  }
+
 }
