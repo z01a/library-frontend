@@ -48,6 +48,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
+import { UserProfileComponent } from './components/application/user/profile/profile.component';
+import { UserBooksComponent } from './components/application/user/books/books.component';
+import { ModeratorProfileComponent } from './components/application/moderator/profile/profile.component';
+import { ModeratorBooksComponent } from './components/application/moderator/books/books.component';
 
 @NgModule({
   declarations: [
@@ -73,8 +77,16 @@ import { MatTabsModule } from '@angular/material/tabs';
     
     ModeratorComponent,
     ModeratorDashboardComponent,
+    ModeratorProfileComponent,
+    ModeratorBooksComponent,
+
+
     UserComponent,
     UserDashboardComponent,
+    UserProfileComponent,
+    UserBooksComponent,
+    UserProfileComponent,
+    UserBooksComponent
   ],
   imports: [
     BrowserModule,

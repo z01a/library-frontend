@@ -62,10 +62,14 @@ export class ApplicationComponent implements OnInit {
 
     ],
     Moderator: [
-      { link: "/moderator", name: "Home", icon: "home" }
+      { link: "/moderator", name: "Home", icon: "home" },
+      { link: "/moderator/profile", name: "Profile", icon: "face" },
+      { link: "/moderator/books", name: "Books", icon: "book" }
     ],
     User: [
-      { link: "/user", name: "Home", icon: "home" }
+      { link: "/user", name: "Home", icon: "home" },
+      { link: "/user/profile", name: "Profile", icon: "face" },
+      { link: "/user/books", name: "Books", icon: "book" }
     ],
     Guest: [
       { link: "/guest", name: "Home", icon: "home" }

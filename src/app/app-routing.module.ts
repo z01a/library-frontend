@@ -25,6 +25,10 @@ import { BooksComponent as AdminBooksComponent } from './components/application/
 import { BookDetailsComponent as AdminBookDetailsComponent } from './components/application/admin/books/details/details.component';
 import { UserRegisterComponent as AdminUserRegisterComponent } from './components/application/admin/users/register/register.component';
 import { BookRegisterComponent as AdminBookRegisterComponent } from './components/application/admin/books/register/register.component';
+import { ModeratorProfileComponent } from './components/application/moderator/profile/profile.component';
+import { UserProfileComponent } from './components/application/user/profile/profile.component';
+import { ModeratorBooksComponent } from './components/application/moderator/books/books.component';
+import { UserBooksComponent } from './components/application/user/books/books.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -64,6 +68,8 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: ModeratorDashboardComponent },
+          { path: 'profile', component: ModeratorProfileComponent },
+          { path: 'books', component: ModeratorBooksComponent },
         ]
       },
       {
@@ -73,6 +79,8 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: UserDashboardComponent },
+          { path: 'profile', component: UserProfileComponent },
+          { path: 'books', component: UserBooksComponent },
         ]
       },
     ]

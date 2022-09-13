@@ -23,7 +23,7 @@ export class UsersService {
     return this.http.post("http://localhost:4000/users/register", body);
   }
 
-  modify(username: string, firstname: string, lastname: string, email: string, address: string, phone: string, moderator: string, active: string) {
+  modify(username: string, firstname: string, lastname: string, email: string, address: string, phone: string, moderator: boolean, active: boolean) {
     const body = {
       username: username,
       firstname: firstname,
@@ -44,6 +44,10 @@ export class UsersService {
     } else {
       return this.http.get("http://localhost:4000/users");
     }
+  }
+
+  fetchCurrentUser() {
+    return this.http.get("http://localhost:4000/users/me");
   }
 
   fetchUser(username: string) {
