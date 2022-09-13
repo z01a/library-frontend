@@ -1,1 +1,15 @@
-<p>books works!</p>
+<ng-container *ngIf="books.length == 0; then nobooks; else somebooks"></ng-container>
+<ng-template #nobooks>
+    <div id="message-container">
+        <h2 style="color: gray;">No books in database</h2>
+    </div>
+</ng-template>
+<ng-template #somebooks>
+    <div id="books-container" style="overflow-y: scroll;">
+        <div *ngFor="let book of books">
+            <a routerLink="/user/books/{{book.isbn}}">
+                <img mat-card-xl-image src="{{book.cover}}" class="book-cover mat-elevation-z4">
+            </a>
+        </div>
+    </div>
+</ng-template>

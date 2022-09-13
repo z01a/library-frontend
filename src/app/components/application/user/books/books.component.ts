@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'app-books',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserBooksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private booksService: BooksService) { }
 
   ngOnInit(): void {
+    this.fetchBooks()
+  }
+
+  books: Book[] = []
+
+  fetchBooks() {
+    this.booksService.fetch().subscribe({
+      next: (result: any) => {
+        this.books = result
+        console.log(this.books)
+      }
+    });
   }
 
 }
