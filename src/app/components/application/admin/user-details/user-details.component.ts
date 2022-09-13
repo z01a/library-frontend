@@ -81,11 +81,21 @@ export class UserDetailsComponent implements OnInit {
 
     const firstname = this.registerGroup.controls["firstname"].value;
     const lastname = this.registerGroup.controls["lastname"].value;
+    const username = this.registerGroup.controls["username"].value;
     const email = this.registerGroup.controls["email"].value;
     const address = this.registerGroup.controls["address"].value;
     const phone = this.registerGroup.controls["phone"].value;
     const moderator = this.registerGroup.controls["moderator"].value;
     const active = this.registerGroup.controls["active"].value;
+
+    this.usersService.modify(username, firstname, lastname, email, address, phone, moderator, active).subscribe({
+      next: () => {
+        console.log("User is modified!")
+      },
+      error: () => {
+        console.log("Failed to modify user!")
+      }
+    });
   }
 
 }

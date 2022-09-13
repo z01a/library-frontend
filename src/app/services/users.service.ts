@@ -23,6 +23,21 @@ export class UsersService {
     return this.http.post("http://localhost:4000/users/register", body);
   }
 
+  modify(username: string, firstname: string, lastname: string, email: string, address: string, phone: string, moderator: string, active: string) {
+    const body = {
+      username: username,
+      firstname: firstname,
+      lastname: lastname,
+      address: address,
+      email: email,
+      phone: phone,
+      moderator: moderator,
+      active: active
+    }
+    
+    return this.http.post("http://localhost:4000/users/modify", body);
+  }
+
   fetch(requests: boolean = false) {
     if(requests) {
       return this.http.get("http://localhost:4000/users/requests");
