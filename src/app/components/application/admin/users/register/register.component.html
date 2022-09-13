@@ -1,0 +1,67 @@
+<div id="register-container">
+    <form id="register-form" [formGroup]="registerGroup" (ngSubmit)="performRegister()">
+        <table class="register-full-width" cellspacing="0"><tr>
+            <td>
+                <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput id="firstname" type="text" formControlName="firstname" name="firstname" placeholder="Firstname">
+                    <mat-error *ngIf="registerGroup.controls['firstname'].invalid">Please enter your firstname</mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput type="text" formControlName="lastname" name="lastname" placeholder="Lastname">
+                    <mat-error *ngIf="registerGroup.controls['lastname'].invalid">Please enter your lastname</mat-error>
+                </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" formControlName="username" name="username" placeholder="Username">
+            <mat-error *ngIf="registerGroup.controls['username'].invalid">Please enter your username</mat-error>
+        </mat-form-field>
+
+        <table class="register-full-width" cellspacing="0"><tr>
+            <td>
+                <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" name="password" placeholder="Password">
+                    <mat-error *ngIf="registerGroup.controls['password'].invalid">Please enter your password</mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+                    <mat-label>Repeat Password</mat-label>
+                    <input matInput type="password" formControlName="repeated" name="repeated" placeholder="Repeat Password">
+                    <mat-error *ngIf="registerGroup.controls['repeated'].invalid">Please repeat your password</mat-error>
+                </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" name="email" placeholder="Ex: john@doe.com">
+            <mat-error *ngIf="registerGroup.controls['email'].invalid">Please enter your email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput type="text" formControlName="address" name="address" placeholder="Address">
+            <mat-error *ngIf="registerGroup.controls['address'].invalid">Please enter your address</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" formControlName="phone" name="phone" placeholder="+381 60 12 34 567">
+            <mat-error *ngIf="registerGroup.controls['phone'].invalid">Please enter your phone number</mat-error>
+        </mat-form-field>
+
+        <button mat-fab color="primary" id="user-details-fab" color="accent" [disabled]="requestInProgress || registerGroup.invalid" (click)="performRegister()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </form>
+</div>

@@ -23,6 +23,7 @@ import { UsersComponent as AdminUsersComponent } from './components/application/
 import { UserDetailsComponent as AdminUserDetailsComponent } from './components/application/admin/user-details/user-details.component';
 import { BooksComponent as AdminBooksComponent } from './components/application/admin/books/books.component';
 import { BookDetailsComponent as AdminBookDetailsComponent } from './components/application/admin/books/details/details.component';
+import { UserRegisterComponent as AdminUserRegisterComponent } from './components/application/admin/users/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -48,6 +49,7 @@ const routes: Routes = [
           { path: 'dashboard', component: AdminDashboardComponent },
           { path: 'requests', component: AdminRequestsComponent },
           { path: 'users', component: AdminUsersComponent },
+          { path: 'users/register', component: AdminUserRegisterComponent },
           { path: 'users/:id', component: AdminUserDetailsComponent },
           { path: 'books', component: AdminBooksComponent },
           { path: 'books/:isbn', component: AdminBookDetailsComponent }

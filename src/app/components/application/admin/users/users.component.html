@@ -58,4 +58,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row class="user-row" *matRowDef="let row; columns: displayedColumns;" (click)="performRowAction(row.username)"></tr>
       </table>
+
+      <a mat-fab routerLink="/admin/users/register" id="users-fab" color="accent">
+        <mat-icon>add</mat-icon>
+      </a>
 </ng-template>

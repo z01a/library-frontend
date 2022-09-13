@@ -21,6 +21,7 @@ import { UserComponent } from './components/application/user/user.component';
 import { DashboardComponent as UserDashboardComponent} from './components/application/user/dashboard/dashboard.component';
 import { HomeComponent } from './components/application/home/home.component';
 import { GuestComponent } from './components/application/guest/guest.component';
+import { UserRegisterComponent as AdminUserRegisterComponent } from './components/application/admin/users/register/register.component';
 
 import { EmptyComponent } from './components/empty/empty.component';
 import { LoginComponent as AdminLoginComponent} from './components/empty/admin/login/login.component';
@@ -64,11 +65,12 @@ import { MatChipsModule } from '@angular/material/chips';
     AdminUserDetailsComponent,
     AdminBooksComponent,
     AdminBookDetailsComponent,
+    AdminUserRegisterComponent,
     
     ModeratorComponent,
     ModeratorDashboardComponent,
     UserComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
