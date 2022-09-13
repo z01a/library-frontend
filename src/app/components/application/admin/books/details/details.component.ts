@@ -100,11 +100,21 @@ export class BookDetailsComponent implements OnInit {
   performSave() {
     this.bookGroup.disable();
 
-    const isbn = this.bookGroup.controls["isbn"].value;
     const title = this.bookGroup.controls["title"].value;
-    const email = this.bookGroup.controls["publisher"].value;
-    const address = this.bookGroup.controls["published"].value;
-    const phone = this.bookGroup.controls["language"].value;
+    const publisher = this.bookGroup.controls["publisher"].value;
+    const published = this.bookGroup.controls["published"].value;
+    const language = this.bookGroup.controls["language"].value;
+
+    if(this.book) {
+      this.booksService.modify(this.book.isbn, title, publisher, published, language).subscribe({
+        next: () => {
+          console.log("Book is modified!")
+        },
+        error: () => {
+          console.log("Failed to modify book!")
+        }
+      });
+    }
   }
 
 }
