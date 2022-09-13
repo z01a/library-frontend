@@ -15,13 +15,16 @@
 }
 
 .book-cover {
+    padding: 5px;;
     background-size: cover;
-    height: 100%;
+    width: 250px;
+    height: 350px;
+    /* height: 100%; */
     border-radius: 5px;
 }
 
 .book-cover:hover {
-    border: 2px solid blue;
+    background-color: #3F51B5;
 }
 
 #books-container > * {
