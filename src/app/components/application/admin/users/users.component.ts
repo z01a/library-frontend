@@ -29,13 +29,20 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  performDelete(username: string) {
-    // TODO: Delete user but check firt does he have books
-  }
-
   performRowAction(username: string) {
     this.router.navigate(['/admin/users/' + username]);
     console.log("Clicked!" + username)
   }
 
+  performDelete(username: string) {
+    this.usersService.delete(username).subscribe({
+      next: (result) => {
+        if(result) {
+          this.users = []
+          this.fetchUsers()
+        }
+      }
+    })
+  }
+  
 }
