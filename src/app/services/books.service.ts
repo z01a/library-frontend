@@ -8,6 +8,19 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
+  register(isbn: string, title: string, publisher: string, published: string, language: string, authors: string[], genres: string[]) {
+    const body = {
+      isbn: isbn,
+      title: title,
+      publisher: publisher,
+      published: published,
+      authors: authors,
+      genres: genres,
+    }
+    
+    return this.http.post("http://localhost:4000/books/register", body);
+  }
+
   fetch(requests: boolean = false) {
     if(requests) {
       return this.http.get("http://localhost:4000/books/requests");

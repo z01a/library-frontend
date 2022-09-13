@@ -22,6 +22,8 @@ import { DashboardComponent as UserDashboardComponent} from './components/applic
 import { HomeComponent } from './components/application/home/home.component';
 import { GuestComponent } from './components/application/guest/guest.component';
 import { UserRegisterComponent as AdminUserRegisterComponent } from './components/application/admin/users/register/register.component';
+import { BookRegisterComponent as AdminBookRegisterComponent } from './components/application/admin/books/register/register.component';
+
 
 import { EmptyComponent } from './components/empty/empty.component';
 import { LoginComponent as AdminLoginComponent} from './components/empty/admin/login/login.component';
@@ -67,6 +69,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     AdminBooksComponent,
     AdminBookDetailsComponent,
     AdminUserRegisterComponent,
+    AdminBookRegisterComponent,
     
     ModeratorComponent,
     ModeratorDashboardComponent,
