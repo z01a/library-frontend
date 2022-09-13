@@ -16,13 +16,13 @@ export enum Action {
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService) {
-    // this.requestInProgress = false;
-  }
+  constructor(private route: ActivatedRoute, private usersService: UsersService) { }
 
   ngOnInit(): void {
     const username = this.route.snapshot.paramMap.get("id");
+
     this.registerGroup.disable()
+    
     if(username) {
       this.usersService.fetchUser(username).subscribe({
         next: (result: any) => {
@@ -30,7 +30,6 @@ export class UserDetailsComponent implements OnInit {
 
           this.registerGroup.controls["firstname"].setValue(this.user?.firstname);
           this.registerGroup.controls["lastname"].setValue(this.user?.lastname);
-          this.registerGroup.controls["username"].setValue(this.user?.username);
           this.registerGroup.controls["email"].setValue(this.user?.email);
           this.registerGroup.controls["address"].setValue(this.user?.address);
           this.registerGroup.controls["moderator"].setValue(this.user?.moderator);
@@ -46,7 +45,6 @@ export class UserDetailsComponent implements OnInit {
   registerGroup = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
-    username: new FormControl('', [Validators.required]),
     moderator: new FormControl('', [Validators.required]),
     active: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -81,21 +79,22 @@ export class UserDetailsComponent implements OnInit {
 
     const firstname = this.registerGroup.controls["firstname"].value;
     const lastname = this.registerGroup.controls["lastname"].value;
-    const username = this.registerGroup.controls["username"].value;
     const email = this.registerGroup.controls["email"].value;
     const address = this.registerGroup.controls["address"].value;
     const phone = this.registerGroup.controls["phone"].value;
     const moderator = this.registerGroup.controls["moderator"].value;
     const active = this.registerGroup.controls["active"].value;
 
-    this.usersService.modify(username, firstname, lastname, email, address, phone, moderator, active).subscribe({
-      next: () => {
-        console.log("User is modified!")
-      },
-      error: () => {
-        console.log("Failed to modify user!")
-      }
-    });
+    if(this.user) {
+      this.usersService.modify(this.user.username, firstname, lastname, email, address, phone, moderator, active).subscribe({
+        next: () => {
+          console.log("User is modified!")
+        },
+        error: () => {
+          console.log("Failed to modify user!")
+        }
+      });
+    }
   }
 
 }
