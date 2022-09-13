@@ -5,14 +5,12 @@
     </div>
 </ng-template>
 <ng-template #somebooks>
-    <div id="books-container">
+    <div id="books-container" style="overflow-y: scroll;">
         <div *ngFor="let book of books">
-            <mat-card class="mat-elevation-z4" style="">
-                <img mat-card-xl-image src="{{book.cover}}" style="background-size: cover;"/>
-                <mat-card-actions>
-                    <button mat-button>DETAILS</button>
-                    <button mat-button color="warn">DELETE</button>
-                </mat-card-actions>
+            <mat-card class="mat-elevation-z4" class="book-card">
+                <a routerLink="/admin/books/{{book.isbn}}">
+                    <img mat-card-xl-image src="{{book.cover}}" class="book-cover"/>
+                </a>
             </mat-card>
         </div>
     </div>

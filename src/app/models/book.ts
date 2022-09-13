@@ -4,6 +4,7 @@ export interface Book {
     authors: Array<string>;
     genres: Array<string>;
     publisher: string;
+    published: string;
     language: string;
     cover: string;
 }

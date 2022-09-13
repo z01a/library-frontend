@@ -14,6 +14,7 @@ import { DashboardComponent as AdminDashboardComponent } from './components/appl
 import { UsersComponent  as AdminUsersComponent } from './components/application/admin/users/users.component';
 import { UserDetailsComponent as AdminUserDetailsComponent } from './components/application/admin/user-details/user-details.component';
 import { BooksComponent as AdminBooksComponent } from './components/application/admin/books/books.component';
+import { BookDetailsComponent as AdminBookDetailsComponent } from './components/application/admin/books/details/details.component';
 import { ModeratorComponent } from './components/application/moderator/moderator.component';
 import { DashboardComponent as ModeratorDashboardComponent} from './components/application/moderator/dashboard/dashboard.component';
 import { UserComponent } from './components/application/user/user.component';
@@ -62,6 +63,7 @@ import { MatChipsModule } from '@angular/material/chips';
     AdminUsersComponent,
     AdminUserDetailsComponent,
     AdminBooksComponent,
+    AdminBookDetailsComponent,
     
     ModeratorComponent,
     ModeratorDashboardComponent,

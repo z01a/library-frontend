@@ -6,6 +6,24 @@
     flex-flow: row wrap;
 }
 
+.book-card {
+    min-height: 300px;
+}
+
+.book-card:hover {
+    cursor: pointer;
+}
+
+.book-cover {
+    background-size: cover;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.book-cover:hover {
+    border: 2px solid blue;
+}
+
 #books-container > * {
     align-self: center;
     margin: 5px;

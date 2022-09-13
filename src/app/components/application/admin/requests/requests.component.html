@@ -36,16 +36,6 @@
             </td>
         </ng-container>
 
-        <!-- <ng-container matColumnDef="role">
-            <th mat-header-cell *matHeaderCellDef> Role </th>
-            <td mat-cell *matCellDef="let user">
-                <mat-chip-list>
-                    <mat-chip *ngIf="user.moderator" color="accent" selected>Moderator</mat-chip>
-                    <mat-chip *ngIf="!user.moderator" color="primary" selected>User</mat-chip>
-                </mat-chip-list>
-            </td>
-        </ng-container> -->
-
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let request" style="text-align: right;" (click)="$event.stopPropagation()">
