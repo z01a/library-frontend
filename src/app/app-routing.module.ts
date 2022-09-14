@@ -31,6 +31,8 @@ import { ModeratorBooksComponent } from './components/application/moderator/book
 import { UserBooksComponent } from './components/application/user/books/books.component';
 import { BookDetailsComponent as ModeratorBooksDetailsComponent } from './components/application/moderator/books/details/details.component';
 import { BookRegisterComponent as ModeratorBookRegisterComponent } from './components/application/moderator/books/register/register.component';
+import { UserReadingComponent } from './components/application/user/reading/reading.component';
+import { UserHistoryComponent } from './components/application/user/history/history.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -85,6 +87,8 @@ const routes: Routes = [
           { path: 'dashboard', component: UserDashboardComponent },
           { path: 'profile', component: UserProfileComponent },
           { path: 'books', component: UserBooksComponent },
+          { path: 'reading', component: UserReadingComponent },
+          { path: 'history', component: UserHistoryComponent },
         ]
       },
     ]

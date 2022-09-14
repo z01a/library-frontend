@@ -69,7 +69,9 @@ export class ApplicationComponent implements OnInit {
     User: [
       { link: "/user", name: "Home", icon: "home" },
       { link: "/user/profile", name: "Profile", icon: "face" },
-      { link: "/user/books", name: "Books", icon: "book" }
+      { link: "/user/books", name: "Books", icon: "book" },
+      { link: "/user/reading", name: "Reading", icon: "menu_book" },
+      { link: "/user/history", name: "History", icon: "history" }
     ],
     Guest: [
       { link: "/guest", name: "Home", icon: "home" }

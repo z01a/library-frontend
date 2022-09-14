@@ -29,6 +29,14 @@ export class BooksService {
     }
   }
 
+  fetchMyBooks() {
+    return this.http.get("http://localhost:4000/reading");
+  }
+
+  fetchMyHistory() {
+    return this.http.get("http://localhost:4000/books/my/history");
+  }
+
   fetchBook(isbn: string) {
     return this.http.get("http://localhost:4000/books/" + isbn);
   }
