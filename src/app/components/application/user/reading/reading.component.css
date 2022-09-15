@@ -17,16 +17,66 @@
 }
 
 .book-cover {
-    padding: 5px;;
+    padding: 5px 5px 0px 5px;
     background-size: cover;
     width: 200px;
     height: 300px;
-    /* height: 100%; */
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.book-cover-button {
+    position: absolute;
+    width: 100%;
+    bottom: -1px;
+    border-radius: 0px 0px 5px 5px !important;
+}
+
+.book-cover-strip {
+    display: inline-block;
+    /* font-size: 2em; */
+    position: absolute;
+    top: 19px;
+    right: 136px;
+    line-height: 40px;
+    color:whitesmoke;
+    height: 40px;
+    text-align: center;
+    background-color: #c62828;
+    z-index: 0;
+    transform: rotate(-45deg);
+}
+
+.book-cover-strip::before {
+    position:absolute; left:-39.5px; top:0px; content:'';
+    border-bottom: 40px solid #c62828;
+    border-left: 40px solid transparent;
+}
+
+.book-cover-strip::after {
+    position:absolute;
+    left: 69px; 
+    top: 0px; content:'';
+    border-left: 40px solid #c62828;
+    border-top: 40px solid transparent;
 }
 
 .book-cover:hover {
     background-color: #3F51B5;
+}
+
+.book-cover-button {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    border-radius: 0px 0px 5px 5px !important;
+}
+
+.book-cover-active {
+    background-color: #3F51B5;
+}
+
+.book-cover-inactive {
+    background-color: rgba(128,128,128, 1);
 }
 
 #books-container > * {

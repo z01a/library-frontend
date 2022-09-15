@@ -7,4 +7,5 @@ export interface Book {
     published: string;
     language: string;
     cover: string;
+    count: Number;
 }

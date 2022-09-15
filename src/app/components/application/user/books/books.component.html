@@ -7,9 +7,23 @@
 <ng-template #somebooks>
     <div id="books-container" style="overflow-y: scroll;">
         <div *ngFor="let book of books">
-            <a routerLink="/user/books/{{book.isbn}}">
-                <img mat-card-xl-image src="{{book.cover}}" class="book-cover mat-elevation-z4">
-            </a>
+            <div style="position: relative;z-index: 1000;height: 340px;">
+                <span class="book-counter-container">
+                    <h1 class="book-counter">
+                        {{book.count}}
+                        <h2 class="book-counter-text">books</h2>
+                    </h1>
+                </span>
+                <!-- <a *ngIf="book.count == 0" routerLink="/user/books/{{book.isbn}}">
+                    <span class="book-cover-inactive-overlay"></span>
+                </a> -->
+                <button mat-flat-button color="primary" class="book-cover-button" [disabled]="book.count == 0">
+                    Reserve
+                </button>
+                <a routerLink="/user/books/{{book.isbn}}">
+                    <img mat-card-xl-image src="{{book.cover}}" [ngClass]="book.count == 0 ? 'book-cover-inactive' : 'book-cover-active'" class="book-cover">
+                </a>
+            </div>
         </div>
     </div>
 </ng-template>

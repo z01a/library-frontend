@@ -7,9 +7,17 @@
 <ng-template #somebooks>
     <div id="books-container" style="overflow-y: scroll;">
         <div *ngFor="let book of books">
-            <a routerLink="/user/books/{{book.isbn}}">
-                <img mat-card-xl-image src="{{book.reading[0].cover}}" class="book-cover mat-elevation-z4">
-            </a>
+            <div style="position: relative;z-index: 1000;height: 340px;">
+                <h1 class="book-cover-strip left">
+                    5 days
+                </h1>
+                <button mat-flat-button color="primary" class="book-cover-button">
+                    Return Book
+                </button>
+                <a routerLink="/user/books/{{book.isbn}}">
+                    <img mat-card-xl-image src="{{book.reading[0].cover}}" class="book-cover book-cover-active">
+                </a>
+            </div>
         </div>
     </div>
 </ng-template>
