@@ -11,7 +11,7 @@
                 <h1 class="book-cover-strip left">
                     5 days
                 </h1>
-                <button mat-flat-button color="primary" class="book-cover-button">
+                <button mat-flat-button color="primary" class="book-cover-button" (click)="returnBook(book.reading[0].isbn)">
                     Return Book
                 </button>
                 <a routerLink="/user/books/{{book.isbn}}">

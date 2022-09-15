@@ -17,7 +17,7 @@
                 <!-- <a *ngIf="book.count == 0" routerLink="/user/books/{{book.isbn}}">
                     <span class="book-cover-inactive-overlay"></span>
                 </a> -->
-                <button mat-flat-button color="primary" class="book-cover-button" [disabled]="book.count == 0">
+                <button mat-flat-button color="primary" class="book-cover-button" (click)="takeBook(book.isbn)" [disabled]="book.count == 0">
                     Reserve
                 </button>
                 <a routerLink="/user/books/{{book.isbn}}">

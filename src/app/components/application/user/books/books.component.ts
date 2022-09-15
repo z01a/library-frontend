@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
 
@@ -9,7 +10,7 @@ import { BooksService } from 'src/app/services/books.service';
 })
 export class UserBooksComponent implements OnInit {
 
-  constructor(private booksService: BooksService) { }
+  constructor(private booksService: BooksService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.fetchBooks()
@@ -22,6 +23,18 @@ export class UserBooksComponent implements OnInit {
       next: (result: any) => {
         this.books = result
         console.log(this.books)
+      }
+    });
+  }
+
+  takeBook(isbn: string) {
+    this.booksService.takeBook(isbn).subscribe({
+      next: (result) => {
+        this.fetchBooks()
+        var snackbar = this.snackbar.open("Book has been taken!");
+          setTimeout(() => {
+            snackbar.dismiss();
+          }, 2500);
       }
     });
   }
