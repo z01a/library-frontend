@@ -8,9 +8,9 @@
     <div id="books-container" style="overflow-y: scroll;">
         <div *ngFor="let book of books">
             <div style="position: relative;z-index: 1000;height: 340px;">
-                <h1 class="book-cover-strip left">
-                    5 days
-                </h1>
+                <h2 class="book-cover-strip left">
+                    {{getRemainingDays(book.taken) + '&nbsp;days'}}
+                </h2>
                 <button mat-flat-button color="primary" class="book-cover-button" (click)="returnBook(book.reading[0].isbn)">
                     Return Book
                 </button>

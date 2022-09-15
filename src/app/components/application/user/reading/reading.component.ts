@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { take } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
 
@@ -39,6 +40,15 @@ export class UserReadingComponent implements OnInit {
           }, 2500);
       }
     });
+  }
+
+  getRemainingDays(sentOn: string){
+    let todayDate = new Date();
+    let sentOnDate = new Date(sentOn);
+
+    let differenceInTime = todayDate.getTime() - sentOnDate.getTime()
+
+    return Math.floor(differenceInTime / (1000 * 3600 * 24));
   }
 
 }
