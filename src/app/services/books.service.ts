@@ -42,7 +42,7 @@ export class BooksService {
   }
 
   fetchMyHistory() {
-    return this.http.get("http://localhost:4000/books/my/history");
+    return this.http.get("http://localhost:4000/history");
   }
 
   fetchBook(isbn: string) {

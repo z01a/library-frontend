@@ -1,1 +1,47 @@
-<p>history works!</p>
+<ng-container *ngIf="history.length == 0; then nohistory; else somehistory"></ng-container>
+<ng-template #nohistory>
+    <div id="message-container">
+        <h2 style="color: gray;">No history in database</h2>
+    </div>
+</ng-template>
+<ng-template #somehistory>
+    <table mat-table [dataSource]="history" style="width:100%;">
+        <ng-container matColumnDef="isbn">
+            <th mat-header-cell *matHeaderCellDef> ISBN </th>
+            <td mat-cell *matCellDef="let history"> {{history.history[0].isbn}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let history"> {{history.history[0].title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="authors">
+            <th mat-header-cell *matHeaderCellDef> Authors </th>
+            <td mat-cell *matCellDef="let history"> {{history.history[0].authors[0]}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publisher">
+            <th mat-header-cell *matHeaderCellDef> Publisher </th>
+            <td mat-cell *matCellDef="let history"> {{history.history[0].publisher}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="published">
+            <th mat-header-cell *matHeaderCellDef> Published </th>
+            <td mat-cell *matCellDef="let history"> {{history.history[0].published}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="taken">
+            <th mat-header-cell *matHeaderCellDef> Taken </th>
+            <td mat-cell *matCellDef="let history"> {{history.taken | date: "d MMM YYYY HH:mm"}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="returned">
+            <th mat-header-cell *matHeaderCellDef> Returned </th>
+            <td mat-cell *matCellDef="let history"> {{history.returned | date: "d MMM YYYY HH:mm"}} </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedHistoryColumns"></tr>
+        <tr mat-row class="user-row" *matRowDef="let row; columns: displayedHistoryColumns;"></tr>
+      </table>
+</ng-template>

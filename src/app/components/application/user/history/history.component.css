@@ -1,0 +1,22 @@
+.user-row {
+    cursor: pointer;
+}
+
+.user-row:hover {
+    background-color: whitesmoke;
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#users-fab {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+}
