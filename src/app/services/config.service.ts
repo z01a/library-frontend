@@ -11,4 +11,12 @@ export class ConfigService {
   fetch() {
     return this.http.get("http://localhost:4000/config");
   }
+
+  setLoan(loan: number) {
+    return this.http.put("http://localhost:4000/config/loan/" + loan, undefined);
+  }
+
+  getLoan() {
+    return this.http.get("http://localhost:4000/config/loan");
+  }
 }

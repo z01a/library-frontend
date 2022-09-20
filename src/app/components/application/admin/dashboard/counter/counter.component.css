@@ -1,0 +1,12 @@
+#counter-container {
+    text-align: center;
+    border-radius: 5px 5px 5px 5px;
+    background-color: transparent;
+}
+
+.book-cover {
+    background-size: cover;
+    width: 200px;
+    height: 300px;
+    border-radius: 5px 5px 5px 5px;
+}

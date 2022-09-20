@@ -1,0 +1,16 @@
+<div id="counter-container" class="mat-elevation-z2">
+    <div style="padding: 5px;">
+        <div style="display: block; text-align: center;">
+            <h2 style="margin: 0;">Loan Days</h2>
+        </div>
+        <div style="display: block;margin: 20px 20px 0px 20px;">
+            <h1 style="font-size: 4em;">{{days}} Day<ng-container *ngIf="days > 1">s</ng-container></h1>
+            <button mat-icon-button (click)="performIncrement()">
+                <mat-icon>add</mat-icon>
+              </button>
+              <button mat-icon-button (click)="performDecrement()">
+                <mat-icon>remove</mat-icon>
+              </button>
+        </div>
+    </div>
+</div>
