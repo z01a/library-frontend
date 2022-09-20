@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from 'src/app/models/book';
@@ -18,6 +19,8 @@ export class UserBooksComponent implements OnInit {
 
   books: Book[] = []
 
+  result: Book[] = []
+
   fetchBooks() {
     this.booksService.fetch().subscribe({
       next: (result: any) => {
@@ -25,6 +28,18 @@ export class UserBooksComponent implements OnInit {
         console.log(this.books)
       }
     });
+  }
+
+  searchBooks(searchText: string) {
+    this.result = []
+    
+    this.result = this.books.filter(book => {
+      let authors = book.authors.filter(author => {
+        return author.toLowerCase().match(searchText.toLocaleLowerCase())
+      })
+
+      return book.title.toLocaleLowerCase().match(searchText.toLocaleLowerCase()) || authors.length != 0
+    })
   }
 
   takeBook(isbn: string) {
@@ -37,6 +52,12 @@ export class UserBooksComponent implements OnInit {
           }, 2500);
       }
     });
+  }
+
+  searchText: string = ""
+
+  performSearch() {
+    this.searchBooks(this.searchText)
   }
 
 }

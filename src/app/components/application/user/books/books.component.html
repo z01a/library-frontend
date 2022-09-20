@@ -1,3 +1,7 @@
+<mat-form-field class="example-form-field" style="width: 100%;" appearance="fill">
+    <mat-label>Search...</mat-label>
+    <input matInput type="text" [(ngModel)]="searchText" (input)="performSearch()">
+</mat-form-field>
 <ng-container *ngIf="books.length == 0; then nobooks; else somebooks"></ng-container>
 <ng-template #nobooks>
     <div id="message-container">
@@ -6,7 +10,7 @@
 </ng-template>
 <ng-template #somebooks>
     <div id="books-container" style="overflow-y: scroll;">
-        <div *ngFor="let book of books">
+        <div *ngFor="let book of (searchText.length == 0 ? books : result)">
             <div style="position: relative;z-index: 1000;height: 340px;">
                 <span class="book-counter-container">
                     <h1 class="book-counter">

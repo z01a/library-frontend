@@ -29,6 +29,13 @@ export class BooksService {
     }
   }
 
+  search(searchText: string) {
+    const body = {
+      searchText: searchText
+    }
+    return this.http.post("http://localhost:4000/books/search", body);
+  }
+
   recommended() {
     return this.http.get("http://localhost:4000/books/recommended");
   }
