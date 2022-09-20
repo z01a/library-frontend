@@ -59,6 +59,7 @@ import { UserHistoryComponent } from './components/application/user/history/hist
 import { BookDetailsComponent as UserBookDetailsComponent } from './components/application/user/details/details.component';
 import { RecommendedComponent } from './components/application/user/dashboard/recommended/recommended.component';
 import { CounterComponent } from './components/application/admin/dashboard/counter/counter.component';
+import { GuestBooksComponent } from './components/application/guest/books/books.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { CounterComponent } from './components/application/admin/dashboard/count
     UserHistoryComponent,
     UserBookDetailsComponent,
     RecommendedComponent,
-    CounterComponent
+    CounterComponent,
+    GuestBooksComponent
   ],
   imports: [
     BrowserModule,
