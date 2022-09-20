@@ -8,4 +8,5 @@ export interface Book {
     language: string;
     cover: string;
     count: Number;
+    recommended: string;
 }

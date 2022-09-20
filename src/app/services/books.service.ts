@@ -29,6 +29,10 @@ export class BooksService {
     }
   }
 
+  recommended() {
+    return this.http.get("http://localhost:4000/books/recommended");
+  }
+
   fetchMyBooks() {
     return this.http.get("http://localhost:4000/reading");
   }

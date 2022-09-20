@@ -1,0 +1,12 @@
+<div id="recommended-container" class="mat-elevation-z2">
+    <div style="padding: 5px;">
+        <div style="display: block; text-align: center;">
+            <h2 style="margin: 0;">Book of a Day</h2>
+        </div>
+        <div style="display: block;">
+            <a routerLink="/user/books/{{recommended?.isbn}}">
+                <img style="display: block;" mat-card-xl-image src="{{recommended?.cover}}" class="book-cover">
+            </a>
+        </div>
+    </div>
+</div>
