@@ -1,0 +1,17 @@
+<div id="register-container">
+    <div style="position: relative;height: auto;">
+        <div *ngIf="info" class="overlay" (click)="toggleInfo()">
+            <div class="overlay-content">
+                <sub>Title</sub><h1 style="font-size: 2.5em;">{{book?.title}}</h1>
+                <sub>Authors</sub><h1 style="font-size: 1.5em;" *ngFor="let author of book?.authors">{{author}}</h1>
+                <sub>Publisher</sub><h1 style="font-size: 1.5em;">{{book?.publisher}}</h1>
+                <sub>Published</sub><h1 style="font-size: 1.5em;">{{book?.published}}</h1>
+                <sub>ISBN</sub><h1 style="font-size: 1.5em;">{{book?.isbn}}</h1>
+            </div>
+        </div>
+        <img class="book-cover mat-elevation-z4" (click)="toggleInfo()" src="{{book?.cover}}">
+        <mat-chip-list style="text-align: center;position: absolute; bottom: 15px; left: 10px;width: 100%;">
+            <mat-chip *ngFor="let genre of book?.genres">{{genre}}</mat-chip>
+        </mat-chip-list>
+    </div>
+</div>

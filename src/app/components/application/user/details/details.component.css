@@ -1,0 +1,40 @@
+#register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.overlay {
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.7);
+    position: absolute;
+    border-radius: 15px;
+    top: 0px;
+    /* border: 1px solid red; */
+    /* text-align: center; */
+    height: 470px;
+    user-select: none;
+    width: 100%;
+}
+
+.book-cover {
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+    height: 470px;
+}
+
+.overlay-content {
+    /* color: whitesmoke; */
+    /* border: 1px solid red; */
+    color: rgba(255, 255, 255, 0.75);
+    /* mix-blend-mode:multiply; */
+    padding: 20px;
+}
+
+.register-full-width {
+    width: 100%;
+}
