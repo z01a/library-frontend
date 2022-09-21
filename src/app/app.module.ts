@@ -60,6 +60,7 @@ import { BookDetailsComponent as UserBookDetailsComponent } from './components/a
 import { RecommendedComponent } from './components/application/user/dashboard/recommended/recommended.component';
 import { CounterComponent } from './components/application/admin/dashboard/counter/counter.component';
 import { GuestBooksComponent } from './components/application/guest/books/books.component';
+import { PopularComponent } from './components/application/user/dashboard/popular/popular.component';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import { GuestBooksComponent } from './components/application/guest/books/books.
     UserBookDetailsComponent,
     RecommendedComponent,
     CounterComponent,
-    GuestBooksComponent
+    GuestBooksComponent,
+    PopularComponent
   ],
   imports: [
     BrowserModule,

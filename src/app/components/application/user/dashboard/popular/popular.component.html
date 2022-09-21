@@ -1,0 +1,12 @@
+<div id="recommended-container" class="mat-elevation-z2">
+    <div>
+        <div style="display: block; text-align: center;">
+            <h2 style="margin: 0;">Popular Books</h2>
+        </div>
+        <div style="display: inline-block;" *ngFor="let book of popular">
+            <a routerLink="/user/books/{{book?.book[0].isbn}}">
+                <img style="display: inline-block;" mat-card-xl-image src="{{book?.book[0].cover}}" class="book-cover">
+            </a>
+        </div>
+    </div>
+</div>

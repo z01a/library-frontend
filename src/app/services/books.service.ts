@@ -40,6 +40,10 @@ export class BooksService {
     return this.http.get("http://localhost:4000/books/recommended");
   }
 
+  popular() {
+    return this.http.get("http://localhost:4000/books/popular");
+  }
+
   fetchMyBooks() {
     return this.http.get("http://localhost:4000/reading");
   }
