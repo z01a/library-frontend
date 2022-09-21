@@ -1,4 +1,5 @@
 <div id="register-container">
+    <img class="book-cover" src="{{book?.cover}}">
     <form id="register-form" [formGroup]="bookGroup">
         <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
             <mat-label>Title</mat-label>
@@ -22,6 +23,12 @@
             <mat-label>Published</mat-label>
             <input matInput type="text" formControlName="published" name="published">
             <mat-error *ngIf="bookGroup.controls['published'].invalid">Please enter valid format (MONTH YEAR)</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">
+            <mat-label>Cover</mat-label>
+            <input matInput type="text" formControlName="cover" name="cover">
+            <mat-error *ngIf="bookGroup.controls['cover'].invalid">Please enter valid cover image</mat-error>
         </mat-form-field>
 
         <mat-form-field class="register-full-width" [hideRequiredMarker]="hideRequiredControl.value" appearance="outline">

@@ -1,7 +1,7 @@
 #register-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -12,7 +12,13 @@
     max-width: 500px;
     width: 100%;
 }
-  
+
+.book-cover {
+    border-radius: 15px 15px 15px 15px;
+    user-select: none;
+    height: 500px;
+}
+
 .register-full-width {
     width: 100%;
 }

@@ -42,6 +42,7 @@ export class BookDetailsComponent implements OnInit {
           this.bookGroup.controls["publisher"].setValue(this.book?.publisher);
           this.bookGroup.controls["published"].setValue(this.book?.published);
           this.bookGroup.controls["language"].setValue(this.book?.language);
+          this.bookGroup.controls["cover"].setValue(this.book?.cover);
         }
       });
     }
@@ -55,6 +56,7 @@ export class BookDetailsComponent implements OnInit {
     publisher: new FormControl('', [Validators.required]),
     published: new FormControl('', [Validators.required]),
     language: new FormControl('', [Validators.required]),
+    cover: new FormControl('', [Validators.required]),
     genres: new FormControl('', []),
   });
 
@@ -104,6 +106,7 @@ export class BookDetailsComponent implements OnInit {
     const publisher = this.bookGroup.controls["publisher"].value;
     const published = this.bookGroup.controls["published"].value;
     const language = this.bookGroup.controls["language"].value;
+    const cover = this.bookGroup.controls["cover"].value;
 
     if(this.book) {
       this.booksService.modify(this.book.isbn, title, publisher, published, language).subscribe({
