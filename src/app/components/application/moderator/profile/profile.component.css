@@ -23,6 +23,12 @@
     right: 50px;
 }
 
+#password-change-fab {
+    position: absolute;
+    bottom: 105px;
+    right: 110px;
+}
+
 .example-section {
     margin: 12px 0;
   }

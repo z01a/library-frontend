@@ -80,6 +80,9 @@ const routes: Routes = [
           { path: 'books/register', component: ModeratorBookRegisterComponent },
           { path: 'books', component: ModeratorBooksComponent },
           { path: 'books/:isbn', component: ModeratorBooksDetailsComponent },
+          { path: 'reading', component: UserReadingComponent },
+          { path: 'history', component: UserHistoryComponent },
+          { path: 'password', component: UserPasswordComponent },
         ]
       },
       {
