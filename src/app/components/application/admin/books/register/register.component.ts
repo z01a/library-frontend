@@ -25,6 +25,7 @@ export class BookRegisterComponent implements OnInit {
     publisher: new FormControl('', [Validators.required]),
     published: new FormControl('', [Validators.required]),
     language: new FormControl('', [Validators.required]),
+    cover: new FormControl('', [Validators.required]),
     genres: new FormControl(''),
     authors: new FormControl(''),
   });
