@@ -38,6 +38,16 @@ export class UsersService {
     return this.http.post("http://localhost:4000/users/modify", body);
   }
 
+  changePassword(new_password: string, old_password: string, old_repeated: string) {
+    const body = {
+      new_password: new_password,
+      old_password: old_password,
+      old_repeated: old_repeated,
+    }
+    
+    return this.http.post("http://localhost:4000/users/change/password", body);
+  }
+
   fetch(requests: boolean = false) {
     if(requests) {
       return this.http.get("http://localhost:4000/users/requests");
