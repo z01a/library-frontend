@@ -66,7 +66,8 @@ export class ApplicationComponent implements OnInit {
       { link: "/moderator/profile", name: "Profile", icon: "face" },
       { link: "/moderator/books", name: "Books", icon: "book" },
       { link: "/moderator/reading", name: "Reading", icon: "menu_book" },
-      { link: "/moderator/history", name: "History", icon: "history" }
+      { link: "/moderator/history", name: "History", icon: "history" },
+      { link: "/moderator/library", name: "Library", icon: "book" }
     ],
     User: [
       { link: "/user", name: "Home", icon: "home" },

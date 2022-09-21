@@ -83,6 +83,7 @@ const routes: Routes = [
           { path: 'reading', component: UserReadingComponent },
           { path: 'history', component: UserHistoryComponent },
           { path: 'password', component: UserPasswordComponent },
+          { path: 'library', component: UserBooksComponent },
         ]
       },
       {
