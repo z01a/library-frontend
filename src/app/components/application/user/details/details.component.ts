@@ -30,11 +30,23 @@ export class BookDetailsComponent implements OnInit {
 
   info: boolean = false;
 
+  comment: string = ""
+
   toggleInfo() {
     if(this.info) {
       this.info = false;
     } else {
       this.info = true;
+    }
+  }
+
+  performComment(isbn: string | undefined) {
+    if(isbn) {
+      this.booksService.comment(isbn, this.comment).subscribe({
+        next: (result) => {
+  
+        }
+      });
     }
   }
 

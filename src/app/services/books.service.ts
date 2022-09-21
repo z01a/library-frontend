@@ -40,6 +40,13 @@ export class BooksService {
     return this.http.get("http://localhost:4000/books/recommended");
   }
 
+  comment(isbn: string, comment: string) {
+    const body = {
+      comment: comment
+    }
+    return this.http.post("http://localhost:4000/books/comment/" + isbn, body)
+  }
+
   popular() {
     return this.http.get("http://localhost:4000/books/popular");
   }

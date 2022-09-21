@@ -9,4 +9,5 @@ export interface Book {
     cover: string;
     count: Number;
     recommended: string;
+    comments: Array<any>;
 }

@@ -1,17 +1,24 @@
 #register-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
+#comments-container {
+    display: inline-block;
+    height: 470px;
+    width: 400px;
+    margin-left: 20px;
+}
+
 .overlay {
     cursor: pointer;
     background-color: rgba(0,0,0, 0.7);
     position: absolute;
-    border-radius: 15px;
+    border-radius: 15px 15px 15px 15px;
     top: 0px;
     /* border: 1px solid red; */
     /* text-align: center; */
@@ -21,7 +28,7 @@
 }
 
 .book-cover {
-    border-radius: 15px;
+    border-radius: 15px 15px 15px 15px;
     cursor: pointer;
     user-select: none;
     height: 470px;
