@@ -70,7 +70,7 @@ export class BookRegisterComponent implements OnInit {
     const cover = this.bookGroup.controls["cover"].value;
     const genres = this.bookGroup.controls["genres"].value;
 
-    this.booksService.register(isbn, title, publisher, published, language, this.authors, this.genres).subscribe({
+    this.booksService.register(isbn, title, publisher, published, language, this.authors, this.genres, cover).subscribe({
       next: () => {
         console.log("Book is registered!")
       },
