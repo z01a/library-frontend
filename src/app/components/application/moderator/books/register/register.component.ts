@@ -25,6 +25,7 @@ export class BookRegisterComponent implements OnInit {
     publisher: new FormControl('', [Validators.required]),
     published: new FormControl('', [Validators.required]),
     language: new FormControl('', [Validators.required]),
+    cover: new FormControl('', [Validators.required]),
     genres: new FormControl(''),
     authors: new FormControl(''),
   });
@@ -66,6 +67,7 @@ export class BookRegisterComponent implements OnInit {
     const publisher = this.bookGroup.controls["publisher"].value;
     const published = this.bookGroup.controls["published"].value;
     const language = this.bookGroup.controls["language"].value;
+    const cover = this.bookGroup.controls["cover"].value;
     const genres = this.bookGroup.controls["genres"].value;
 
     this.booksService.register(isbn, title, publisher, published, language, this.authors, this.genres).subscribe({

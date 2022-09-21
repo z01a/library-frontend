@@ -8,7 +8,7 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  register(isbn: string, title: string, publisher: string, published: string, language: string, authors: string[], genres: string[]) {
+  register(isbn: string, title: string, publisher: string, published: string, language: string, authors: string[], genres: string[], cover: string) {
     const body = {
       isbn: isbn,
       title: title,
@@ -16,6 +16,7 @@ export class BooksService {
       published: published,
       authors: authors,
       genres: genres,
+      cover: cover
     }
     
     return this.http.post("http://localhost:4000/books/register", body);
