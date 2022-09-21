@@ -35,6 +35,7 @@ import { UserReadingComponent } from './components/application/user/reading/read
 import { UserHistoryComponent } from './components/application/user/history/history.component';
 import { BookDetailsComponent as UserBookDetailsComponent } from './components/application/user/details/details.component';
 import { GuestBooksComponent } from './components/application/guest/books/books.component';
+import { UserPasswordComponent } from './components/application/user/password/password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'guest', pathMatch: 'full' },
@@ -93,6 +94,7 @@ const routes: Routes = [
           { path: 'books/:isbn', component: UserBookDetailsComponent },
           { path: 'reading', component: UserReadingComponent },
           { path: 'history', component: UserHistoryComponent },
+          { path: 'password', component: UserPasswordComponent },
         ]
       },
     ]

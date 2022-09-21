@@ -61,6 +61,7 @@ import { RecommendedComponent } from './components/application/user/dashboard/re
 import { CounterComponent } from './components/application/admin/dashboard/counter/counter.component';
 import { GuestBooksComponent } from './components/application/guest/books/books.component';
 import { PopularComponent } from './components/application/user/dashboard/popular/popular.component';
+import { UserPasswordComponent } from './components/application/user/password/password.component';
 
 
 @NgModule({
@@ -105,7 +106,8 @@ import { PopularComponent } from './components/application/user/dashboard/popula
     RecommendedComponent,
     CounterComponent,
     GuestBooksComponent,
-    PopularComponent
+    PopularComponent,
+    UserPasswordComponent
   ],
   imports: [
     BrowserModule,

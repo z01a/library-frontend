@@ -40,5 +40,8 @@
             <mat-icon *ngIf="action === Action.Edit">edit</mat-icon>
             <mat-icon *ngIf="action === Action.Save">save</mat-icon>
         </button>
+        <a mat-mini-fab id="password-change-fab" color="primary" routerLink="/user/password" [disabled]="profileGroup.invalid">
+            <mat-icon>key</mat-icon>
+        </a>
     </form>
 </div>
